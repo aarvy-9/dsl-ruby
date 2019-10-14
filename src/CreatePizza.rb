@@ -1,13 +1,13 @@
-require './lib/pizza.rb'
+require_relative '../src/lib/pizza.rb'
 
-s = Pizza.new "Veg Pizza" do
+def CreatePizza()
+  s = Pizza.new "Veg Pizza" do
   spread "sauce"
   spread "cheese"
   toppings "onions", "jalapenos", "green_pepper"
   spread "cheese"
   bake
+  end 
+  return s.spreads + s.alltoppings
+  
 end
-
-puts "Name of pizza : #{s.name}"
-puts "Added spreads : #{s.spreads}"
-puts "Added toppings : #{s.alltoppings}"
