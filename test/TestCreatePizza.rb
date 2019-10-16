@@ -7,6 +7,6 @@ class TestCreatePizza < Test::Unit::TestCase
 	end
 
 	def test_createpizza
-		assert_equal(CreatePizza(), ["sauce", "cheese", "cheese", "onions", "jalapenos", "green_pepper"])
+		assert_equal(CreatePizza(), Pizza)
 	end
 end

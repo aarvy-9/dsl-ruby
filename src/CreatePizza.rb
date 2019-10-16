@@ -1,13 +1,8 @@
 require_relative '../src/lib/pizza.rb'
 
 def CreatePizza()
-  s = Pizza.new "Veg Pizza" do
-  spread "sauce"
-  spread "cheese"
-  toppings "onions", "jalapenos", "green_pepper"
-  spread "cheese"
-  bake
+  s = Pizza.new do
+  create Pizza
   end 
-  return s.spreads + s.alltoppings
-  
+  return s.name
 end

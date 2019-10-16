@@ -1,8 +1,7 @@
 class Pizza
   attr_accessor :name, :spreads, :alltoppings, :bake
 
-  def initialize(name, &block)
-	self.name = name
+  def initialize(&block)
 	self.spreads = []
 
 	instance_eval &block
@@ -16,7 +15,15 @@ class Pizza
 	@alltoppings = args
   end
   
+  def create(*args)
+	if args.length() == 1
+	  @name = args[0]
+	end
+  end
+  
   def method_missing(name, *args)
-	puts "You called #{name}"
+	if args.length() == 1
+	  return args[0]
+	end
   end
 end
