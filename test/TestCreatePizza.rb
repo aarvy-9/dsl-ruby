@@ -3,7 +3,7 @@ require 'test/unit'
 
 class TestCreatePizza < Test::Unit::TestCase
 	def test_canary
-		assert_true true
+		assert true
 	end
 
 	def test_createpizza
