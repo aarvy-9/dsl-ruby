@@ -23,25 +23,25 @@ class TestCreatePizza < Test::Unit::TestCase
 		assert_equal 'Pizza: cheese', result
 	end
 	
-	#def test_spread_sauce
-	#	input_string = <<-INPUT
-	#						create Pizza
-	#						spread cheese
-	#						toppings onions, jalapenos, green_pepper
-	#					INPUT
-	#	result = process(input_string)
-	#	assert_equal "onions: jalapenos: green_pepper: ", result
-	#end
-	#
-	#def test_spread_sauce
-	#	input_string = <<-INPUT
-	#						create Pizza
-	#						spread cheese
-	#						toppings onions, jalapenos, green_pepper
-	#						spread sauce
-	#					INPUT
-	#	result = process(input_string)
-	#	assert_equal 'sauce:', result
-	#end
+	def test_spread_toppings
+		dsl = <<-EOF
+		  create Pizza
+		  spread cheese
+		  toppings onions, jalapenos, green_pepper
+		EOF
+		result = process(dsl)
+		assert_equal 'Pizza: cheese, onions, jalapenos, green_pepper', result
+	end
+	
+	def test_spread_sauce
+		dsl = <<-EOF
+		  create Pizza
+		  spread cheese
+		  toppings onions, jalapenos, green_pepper
+		  spread sauce
+		EOF
+		result = process(dsl)
+		assert_equal 'Pizza: cheese, onions, jalapenos, green_pepper, sauce', result
+	end
 
 end
