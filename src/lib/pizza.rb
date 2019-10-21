@@ -5,7 +5,7 @@ class Pizza
 	end
 	
 	def spread(arg)
-		arg
+		arg.to_s.concat(":")
 	end
 	
 	def toppings(*args)
@@ -13,8 +13,6 @@ class Pizza
 	end
 	
 	def method_missing(m, *args, &block)
-		if m.to_s == "cheese" or m.to_s == "sauce"
-			m.to_s.concat(":")
-		end
+		args[0].to_s.concat(":")
 	end
 end
