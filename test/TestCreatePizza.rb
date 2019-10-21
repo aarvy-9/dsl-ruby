@@ -7,19 +7,20 @@ class TestCreatePizza < Test::Unit::TestCase
 	end
 
 	def test_create_pizza
-		input_string = <<-INPUT
-							create Pizza
-						INPUT
-		result = process(input_string)
+		dsl = 'create Pizza'
+		result = process(dsl)
+
 		assert_equal 'Pizza:', result
 	end
 	
 	def test_spread_cheese
-		input_string = <<-INPUT
-							spread cheese
-						INPUT
-		result = process(input_string)
-		assert_equal 'cheese:', result
+		dsl = <<-EOF
+		  create Pizza
+		  spread cheese
+		EOF
+		result = process(dsl)
+
+		assert_equal 'Pizza: cheese', result
 	end
 	
 	#def test_spread_sauce

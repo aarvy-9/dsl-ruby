@@ -1,18 +1,24 @@
 class Pizza
-	
-	def create(arg)
-		arg.to_s.concat(":")
+  def initialize()
+    @ingredients = []
+  end
+  
+	def create(klass)
 	end
 	
-	def spread(arg)
-		arg.to_s.concat(":")
+	def spread(ingredient)
+	  @ingredients << ingredient		
 	end
 	
 	def toppings(*args)
 		puts *args
 	end
 	
-	def method_missing(m, *args, &block)
-		args[0].to_s.concat(":")
+	def method_missing(*args)
+		args[0].to_s
 	end
+	
+	def to_s
+	  "Pizza: #{@ingredients.join(', ')}".strip 
+  end
 end
