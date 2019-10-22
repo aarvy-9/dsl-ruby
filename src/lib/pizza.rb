@@ -18,6 +18,10 @@ class Pizza
     args[0].to_s
   end
   
+  def bake()
+	@ingredients << "baked"
+  end
+  
   def to_s
     "Pizza: #{@ingredients.join(', ')}".strip 
   end

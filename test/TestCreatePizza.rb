@@ -43,5 +43,17 @@ class TestCreatePizza < Test::Unit::TestCase
 		result = process(dsl)
 		assert_equal 'Pizza: cheese, onions, jalapenos, green_pepper, sauce', result
 	end
+	
+	def test_baked
+		dsl = <<-EOF
+		  create Pizza
+		  spread cheese
+		  toppings onions, jalapenos, green_pepper
+		  spread sauce
+		  bake
+		EOF
+		result = process(dsl)
+		assert_equal 'Pizza: cheese, onions, jalapenos, green_pepper, sauce, baked', result
+	end
 
 end
