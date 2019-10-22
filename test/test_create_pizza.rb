@@ -1,4 +1,4 @@
-require_relative '../src/CreatePizza'
+require_relative '../src/create_pizza'
 require 'test/unit'
 
 class TestCreatePizza < Test::Unit::TestCase
