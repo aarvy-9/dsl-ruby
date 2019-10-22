@@ -29,7 +29,8 @@ class TestCreatePizza < Test::Unit::TestCase
 		  spread cheese
 		  toppings onions, jalapenos, green_pepper
 		EOF
-		result = process(dsl) #Feedback: a blank line after this line, please
+		result = process(dsl)
+		
 		assert_equal 'Pizza: cheese, onions, jalapenos, green_pepper', result
 	end
 	
@@ -40,7 +41,8 @@ class TestCreatePizza < Test::Unit::TestCase
 		  toppings onions, jalapenos, green_pepper
 		  spread sauce
 		EOF
-		result = process(dsl) #Feedback: a blank line after this line, please
+		result = process(dsl)
+		
 		assert_equal 'Pizza: cheese, onions, jalapenos, green_pepper, sauce', result
 	end
 	
@@ -52,7 +54,8 @@ class TestCreatePizza < Test::Unit::TestCase
 		  spread sauce
 		  bake
 		EOF
-		result = process(dsl) #Feedback: a blank line after this line, please
+		result = process(dsl)
+		
 		assert_equal 'Pizza: cheese, onions, jalapenos, green_pepper, sauce, baked', result
 	end
 
